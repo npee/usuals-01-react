@@ -43,6 +43,24 @@ class UserListComponent extends Component {
         });
     }
 
+    deleteUser = (userNo) => {
+        // eslint-disable-next-line no-restricted-globals
+        confirm("사용자를 삭제하시겠습니까?") ?
+            ApiService.deleteUser(userNo).then( res => {
+                this.setState({
+                    // eslint-disable-next-line array-callback-return
+                    users: this.state.users.filter( user => {
+                        // eslint-disable-next-line no-unused-expressions
+                        return user.userNo !== userNo;
+                    }),
+                    message: '사용자가 삭제되었습니다.',
+                });
+                alert(this.state.message);
+            }).catch( err => {
+                console.log('deleterUser() Error!', err);
+            }) : console.log("삭제 취소");
+    }
+
     render() {
         const classes = useStyles();
         console.log(this.state);
@@ -69,7 +87,7 @@ class UserListComponent extends Component {
                                 <TableCell align="center">{user.userName}</TableCell>
                                 <TableCell align="center">{user.createdDate}</TableCell>
                                 <TableCell align="center">{user.modifiedDate}</TableCell>
-                                <TableCell align="center" onClick={() => this.deleteQuiz(user.quizId)}>
+                                <TableCell align="center" onClick={() => this.deleteUser(user.userNo)}>
                                     <DeleteIcon />
                                 </TableCell>
                                 <TableCell align="center" onClick={() => this.editQuiz(user.quizId)}>
