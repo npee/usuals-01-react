@@ -140,4 +140,8 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/webstorm,react
 
+# intelliJ IDEA directory
 .idea/
+
+# React environment file
+.env
