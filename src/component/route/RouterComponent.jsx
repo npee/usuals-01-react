@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import UserListComponent from '../users/UserListComponent';
 import UserAddComponent from "../users/UserAddComponent";
+import MainMapComponent from "../main/MapComponent";
 
 const AppRouter = () => {
     return (
@@ -9,7 +10,7 @@ const AppRouter = () => {
             <BrowserRouter>
                 <div style={style}>
                     <Switch>
-                        <Route exact path="/" component={UserListComponent} />
+                        <Route exact path="/" component={MainMapComponent} />
                         <Route path="/all-users" component={UserListComponent} />
                         <Route path="/add-user" component={UserAddComponent} />
                     </Switch>
