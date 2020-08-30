@@ -19,6 +19,9 @@ const useStyles = () => ({
     }
 });
 
+// eslint-disable-next-line no-unused-vars
+class User { userNo; userId; userName; password; createdDate; modifiedDate; }
+
 class UserListComponent extends Component {
 
     constructor(props) {
@@ -41,6 +44,12 @@ class UserListComponent extends Component {
         }).catch( err => {
             console.log('reloadedUserList() Error!', err);
         });
+    }
+
+    addUser = () => {
+        window.localStorage.removeItem('userNo');
+        this.props.history.push('/add-user');
+        console.log(this.props);
     }
 
     deleteUser = (userNo) => {
@@ -68,7 +77,7 @@ class UserListComponent extends Component {
         return (
             <div>
                 <Typography variant="h4" style={ classes.typoGraphy }>User List</Typography>
-                <Button variant="contained" color="primary" onClick={this.addQuiz}>퀴즈 등록</Button>
+                <Button variant="contained" color="primary" onClick={this.addUser}>사용자 등록</Button>
                 <Table>
                     <TableHead>
                         <TableRow>

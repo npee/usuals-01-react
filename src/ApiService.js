@@ -12,7 +12,7 @@ class ApiService {
         return axios.get(API_BASE_URL + '/users?' + 'userId=' + id + '&password=' + password);
     }
 
-    createUser(quiz) {
+    addUser(quiz) {
         return axios.post(API_BASE_URL + '/users', quiz);
     }
 

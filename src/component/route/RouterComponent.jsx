@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import UserListComponent from '../users/UserListComponent';
+import UserAddComponent from "../users/UserAddComponent";
 
 const AppRouter = () => {
     return (
@@ -9,7 +10,8 @@ const AppRouter = () => {
                 <div style={style}>
                     <Switch>
                         <Route exact path="/" component={UserListComponent} />
-                        <Route path="/map" component={UserListComponent} />
+                        <Route path="/all-users" component={UserListComponent} />
+                        <Route path="/add-user" component={UserAddComponent} />
                     </Switch>
                 </div>
             </BrowserRouter>
